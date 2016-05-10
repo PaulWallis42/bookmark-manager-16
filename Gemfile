@@ -8,3 +8,4 @@ source "https://rubygems.org"
   gem 'dm-postgres-adapter'
   gem 'rake'
   gem 'bcrypt'
+  gem 'sinatra-flash'
