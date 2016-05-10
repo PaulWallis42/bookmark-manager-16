@@ -6,10 +6,12 @@ feature 'Creating Tags' do
     visit '/links/new'
     fill_in :title, with: 'Makers Academy'
     fill_in :url, with: 'http://www.makersacademy.com/'
-    fill_in :tag, with: 'Education'
+    fill_in :tags, with: 'Education'
     click_button 'Create Link'
 
     link = Link.first
     expect(link.tags.map(&:name)).to include('Education')
   end
+
+  
 end
