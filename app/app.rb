@@ -79,6 +79,18 @@ class BookmarkManager16 < Sinatra::Base
     redirect to '/links'
   end
 
+  get '/users/recover' do
+    erb :'users/recover'
+  end
+
+  post '/users/recover' do
+    user = User.first(email: params[:email])
+      if user
+        user.generate_token
+      end
+    erb :'users/acknowledgement'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
